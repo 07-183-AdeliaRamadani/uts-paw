@@ -75,16 +75,6 @@ function Koleksi() {
     <section>
       <h1>Inventaris Laboratorium</h1>
 
-      <p>
-        <Link to="/">Beranda</Link>
-        {' | '}
-        <Link to="/tambah">Tambah Inventaris</Link>
-        {' | '}
-        <Link to="/statistik">Statistik</Link>
-        {' | '}
-        <Link to="/tentang">Tentang</Link>
-      </p>
-
       <Pencarian
         value={cari}
         onChange={setCari}
@@ -148,9 +138,7 @@ function DetailKoleksi() {
       <section>
         <h1>Data tidak ditemukan</h1>
 
-        <p>
-          Item dengan ID tersebut tidak ditemukan.
-        </p>
+        <p>Item dengan ID tersebut tidak ditemukan.</p>
 
         <Link to="/koleksi">
           Kembali ke Koleksi
@@ -163,21 +151,10 @@ function DetailKoleksi() {
     <section>
       <h1>{item.judul}</h1>
 
-      <p>
-        Kategori: {item.kategori}
-      </p>
-
-      <p>
-        Kode Alat: {item.kodeAlat}
-      </p>
-
-      <p>
-        Jumlah: {item.jumlah}
-      </p>
-
-      <p>
-        Kondisi: {item.kondisi}
-      </p>
+      <p>Kategori: {item.kategori}</p>
+      <p>Kode Alat: {item.kodeAlat}</p>
+      <p>Jumlah: {item.jumlah}</p>
+      <p>Kondisi: {item.kondisi}</p>
 
       <p>
         <Link to="/koleksi">
@@ -198,7 +175,6 @@ function DetailKoleksi() {
 
 function TambahKoleksi() {
   const navigate = useNavigate()
-
   const { tambahKoleksi } = useKoleksi()
 
   const [judul, setJudul] = useState('')
@@ -389,7 +365,6 @@ function Statistik() {
       }
 
       hasil[kategori].jumlahItem += 1
-
       hasil[kategori].totalAlat +=
         Number(item.jumlah) || 0
 
@@ -445,14 +420,8 @@ function Statistik() {
           ).map(([kategori, data]) => (
             <tr key={kategori}>
               <td>{kategori}</td>
-
-              <td>
-                {data.jumlahItem}
-              </td>
-
-              <td>
-                {data.totalAlat}
-              </td>
+              <td>{data.jumlahItem}</td>
+              <td>{data.totalAlat}</td>
             </tr>
           ))}
         </tbody>
@@ -469,21 +438,10 @@ function Tentang() {
 
       <h2>Identitas Mahasiswa</h2>
 
-      <p>
-        Nama: {mahasiswa.nama}
-      </p>
-
-      <p>
-        NIM: {mahasiswa.nim}
-      </p>
-
-      <p>
-        Kelas: {mahasiswa.kelas}
-      </p>
-
-      <p>
-        Tema: {mahasiswa.tema}
-      </p>
+      <p>Nama: {mahasiswa.nama}</p>
+      <p>NIM: {mahasiswa.nim}</p>
+      <p>Kelas: {mahasiswa.kelas}</p>
+      <p>Tema: {mahasiswa.tema}</p>
 
       <p>
         Aplikasi ini dibuat untuk mengelola data
@@ -505,9 +463,7 @@ function TidakDitemukan() {
     <section>
       <h1>404</h1>
 
-      <p>
-        Halaman tidak ditemukan.
-      </p>
+      <p>Halaman tidak ditemukan.</p>
 
       <Link to="/">
         Kembali ke Beranda
