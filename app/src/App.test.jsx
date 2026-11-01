@@ -1,14 +1,103 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { expect, test } from 'vitest'
-import App from './App.jsx'
+import App from './App'
 
-// Contoh test. Tambahkan minimal 5 test buatan sendiri (butir rubrik F1).
-test('rute tidak dikenal menampilkan 404', () => {
-  render(
-    <MemoryRouter initialEntries={['/tidak-ada']}>
+const dataKoleksi = [
+  {
+    id: '1',
+    judul: 'Komputer Desktop Dell OptiPlex',
+    kategori: 'Komputer',
+    kodeAlat: 'LAB-KOM-001',
+    jumlah: 20,
+    kondisi: 'Baik',
+  },
+  {
+    id: '2',
+    judul: 'Monitor LED Samsung 24 Inch',
+    kategori: 'Komputer',
+    kodeAlat: 'LAB-MON-002',
+    jumlah: 20,
+    kondisi: 'Baik',
+  },
+]
+
+function renderApp(route = '/') {
+  return render(
+    <MemoryRouter initialEntries={[route]}>
       <App />
     </MemoryRouter>,
   )
-  expect(screen.getByRole('heading', { name: '404' })).toBeInTheDocument()
+}
+
+beforeEach(() => {
+  localStorage.clear()
+
+  vi.stubGlobal(
+    'fetch',
+    vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(dataKoleksi),
+      }),
+    ),
+  )
+})
+
+describe('Aplikasi Inventaris Laboratorium', () => {
+  it('menampilkan identitas mahasiswa di beranda', () => {
+    renderApp('/')
+
+    expect(
+      screen.getByText(/Adelia Ramadani/i),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(/123140183/i),
+    ).toBeInTheDocument()
+  })
+
+  it('halaman koleksi menampilkan data inventaris', async () => {
+    renderApp('/koleksi')
+
+    expect(
+      await screen.findByText(/Komputer Desktop Dell OptiPlex/i),
+    ).toBeInTheDocument()
+  })
+
+  it('halaman koleksi memiliki kotak pencarian', async () => {
+    renderApp('/koleksi')
+
+    const searchbox = await screen.findByRole('searchbox')
+
+    expect(searchbox).toBeInTheDocument()
+  })
+
+  it('halaman detail menampilkan informasi item', async () => {
+    renderApp('/koleksi/1')
+
+    expect(
+      await screen.findByText(/Komputer Desktop Dell OptiPlex/i),
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByText(/LAB-KOM-001/i),
+    ).toBeInTheDocument()
+  })
+
+  it('route yang tidak dikenali menampilkan 404', () => {
+    renderApp('/halaman-yang-tidak-ada')
+
+    expect(
+      screen.getByRole('heading', { name: /404/i }),
+    ).toBeInTheDocument()
+  })
+
+  it('halaman tentang menampilkan nama mahasiswa', () => {
+    renderApp('/tentang')
+
+    expect(
+      screen.getByText(/Nama: Adelia Ramadani/i),
+    ).toBeInTheDocument()
+  })
 })

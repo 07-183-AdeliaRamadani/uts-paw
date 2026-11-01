@@ -1,10 +1,98 @@
 [
   {
     "id": "1",
-    "judul": "Contoh item pertama",
-    "kategori": "Contoh",
-    "fieldTema1": "ganti sesuai field tema",
-    "fieldTema2": 0,
-    "fieldTema3": "ganti sesuai field tema"
+    "judul": "Komputer Desktop Dell OptiPlex",
+    "kategori": "Komputer",
+    "kodeAlat": "LAB-KOM-001",
+    "jumlah": 20,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "2",
+    "judul": "Monitor LED Samsung 24 Inch",
+    "kategori": "Komputer",
+    "kodeAlat": "LAB-MON-002",
+    "jumlah": 20,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "3",
+    "judul": "Router MikroTik RB750Gr3",
+    "kategori": "Jaringan",
+    "kodeAlat": "LAB-JAR-003",
+    "jumlah": 5,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "4",
+    "judul": "Switch TP-Link 24 Port",
+    "kategori": "Jaringan",
+    "kodeAlat": "LAB-JAR-004",
+    "jumlah": 4,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "5",
+    "judul": "Multimeter Digital",
+    "kategori": "Alat Ukur",
+    "kodeAlat": "LAB-UKR-005",
+    "jumlah": 10,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "6",
+    "judul": "Oscilloscope Digital",
+    "kategori": "Alat Ukur",
+    "kodeAlat": "LAB-UKR-006",
+    "jumlah": 4,
+    "kondisi": "Perlu Servis"
+  },
+  {
+    "id": "7",
+    "judul": "Arduino Uno R3",
+    "kategori": "Elektronika",
+    "kodeAlat": "LAB-ELK-007",
+    "jumlah": 15,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "8",
+    "judul": "Breadboard 830 Tie Point",
+    "kategori": "Elektronika",
+    "kodeAlat": "LAB-ELK-008",
+    "jumlah": 20,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "9",
+    "judul": "Access Point TP-Link",
+    "kategori": "Jaringan",
+    "kodeAlat": "LAB-JAR-009",
+    "jumlah": 6,
+    "kondisi": "Perlu Servis"
+  },
+  {
+    "id": "10",
+    "judul": "Power Supply DC Adjustable",
+    "kategori": "Elektronika",
+    "kodeAlat": "LAB-ELK-010",
+    "jumlah": 8,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "11",
+    "judul": "Laptop ASUS VivoBook",
+    "kategori": "Komputer",
+    "kodeAlat": "LAB-KOM-011",
+    "jumlah": 5,
+    "kondisi": "Baik"
+  },
+  {
+    "id": "12",
+    "judul": "Tang Crimping RJ45",
+    "kategori": "Jaringan",
+    "kodeAlat": "LAB-JAR-012",
+    "jumlah": 7,
+    "kondisi": "Rusak"
   }
 ]
